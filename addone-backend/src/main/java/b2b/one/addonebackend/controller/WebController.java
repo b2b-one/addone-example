@@ -21,8 +21,7 @@ public class WebController {
     @CrossOrigin
     @RequestMapping(value = "/validateToken", method = RequestMethod.POST)
     public ResponseEntity validateToken(@RequestBody PostRequest payload) {
-        boolean valid = authWithOne(payload.getToken(), payload.getOneBoUrl(), payload.getTenantKey(),
-                payload.getPluginId());
+        boolean valid = authWithOne(payload.getToken(), payload.getTenantKey(), payload.getPluginId());
 
         if (valid) {
             return new ResponseEntity(HttpStatus.OK);
@@ -31,10 +30,10 @@ public class WebController {
         }
     }
 
-    private boolean authWithOne(String token, String oneBoUrl, String tenantKey, String pluginId) {
+    private boolean authWithOne(String token, String tenantKey, String pluginId) {
         try {
-            URL url = new URL(
-                    oneBoUrl + "/api/v1/plugins/integrations/public/auth-with-one/" + pluginId + "/validateToken");
+            URL url = new URL("https://backoffice-price.one.unity.pl/api/v1/plugins/integrations/public/auth-with-one/"
+                    + pluginId + "/validateToken");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             try {
