@@ -32,7 +32,8 @@ public class WebController {
 
     private boolean authWithOne(String token, String tenantKey, String pluginId) {
         try {
-            URL url = new URL("https://backoffice-price.one.unity.pl/api/v1/plugins/integrations/public/auth-with-one/"
+            // ONe Backoffice api url
+            URL url = new URL("https://login.shop/api/v1/plugins/integrations/public/auth-with-one/"
                     + pluginId + "/validateToken");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
