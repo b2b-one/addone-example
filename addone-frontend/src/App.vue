@@ -42,7 +42,6 @@ export default {
           'https://apps.b2b.one/addone-backend/validateToken', // Plugin backend app url
           {
             token: token.value,
-            oneBoUrl: window.location.ancestorOrigins[0], //ONe backoffice url
             tenantKey: $one?.tenant.tenantKey,
             pluginId: 'addoneExample'
           })
